@@ -13,6 +13,20 @@ using Microsoft.Extensions.Options;
 
 namespace AspNETCoreUnity
 {
+    public interface IMessage
+    {
+        string Send(string message);
+    }
+
+    public class ConsoleMessage : IMessage
+    {
+        public string Send(string message)
+        {
+            string result = $"ConsoleMessage :{message}";
+            Console.WriteLine(result);
+            return result;
+        }
+    }
     public class Startup
     {
         public Startup(IConfiguration configuration)
